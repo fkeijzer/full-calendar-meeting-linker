@@ -169,12 +169,25 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
       <hr className="modal-hr" />
 
-      <div className="modal-footer">
-        <div className="footer-actions-right">
-          <button type="button" className="mod-cta" onClick={onClose}>
+<hr className="modal-hr" />
+
+      <div className="modal-footer" style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+          <button 
+            type="button" 
+            className="mod-cta" 
+            onClick={onOpenNote}
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+          >
+            <Icon name="pencil" />
+            Notes
+          </button>
+
+          <button 
+            type="button" 
+            onClick={onClose}
+          >
             Close
           </button>
-        </div>
       </div>
     </div>
   );

@@ -1,11 +1,10 @@
 {
-	"id": "full-calendar-remastered",
-	"name": "Full Calendar Remastered",
-	"version": "0.12.6.2",
+	"id": "full-calendar-meeting-linker",
+	"name": "Full Calendar (Meeting Note Edition)",
+	"version": "1.0.0",
 	"minAppVersion": "0.16.3",
-	"description": "Remastered version Full Calendar for your daily calender needs, and beyond.",
-	"author": "Jovi Koikkara",
-	"authorUrl": "https://github.com/YouFoundJK",
-	"fundingUrl": "https://ko-fi.com/youfoundjk",
+	"description": "Remastered version Full Calendar with automated Outlook meeting note creation.",
+	"author": "Jovi Koikkara, modified by Flip Keijzer",
+	"authorUrl": "https://github.com/fkeijzer",
 	"isDesktopOnly": false
 }

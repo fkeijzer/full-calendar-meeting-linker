@@ -1,0 +1,53 @@
+{
+  "calendarSources": [
+    {
+      "type": "ical",
+      "name": "New Ical Calendar",
+      "color": "#3b82f6",
+      "id": "ical_1",
+      "url": "https://outlook.office365.com/owa/calendar/fd9f7afc309c40b481606f0d4b5a0aed@hkb-advies.nl/8ee43d25fbc0448eabd1f649072ae7df5355957324693231685/calendar.ics"
+    }
+  ],
+  "defaultCalendar": 0,
+  "firstDay": 0,
+  "initialView": {
+    "desktop": "timeGridWeek",
+    "mobile": "timeGrid3Days"
+  },
+  "timeFormat24h": false,
+  "clickToCreateEventFromMonthView": true,
+  "displayTimezone": "Europe/Amsterdam",
+  "lastSystemTimezone": "Europe/Amsterdam",
+  "enableAdvancedCategorization": false,
+  "chrono_analyser_config": null,
+  "categorySettings": [],
+  "useCustomGoogleClient": false,
+  "googleClientId": "",
+  "googleClientSecret": "",
+  "googleAccounts": [],
+  "businessHours": {
+    "enabled": false,
+    "daysOfWeek": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "startTime": "09:00",
+    "endTime": "17:00"
+  },
+  "enableBackgroundEvents": true,
+  "enableReminders": true,
+  "enableDefaultReminder": true,
+  "defaultReminderMinutes": 10,
+  "workspaces": [],
+  "activeWorkspace": null,
+  "showEventInStatusBar": false,
+  "slotMinTime": "00:00",
+  "slotMaxTime": "24:00",
+  "weekends": true,
+  "hiddenDays": [],
+  "dayMaxEvents": false,
+  "currentVersion": "0.12.6"
+}

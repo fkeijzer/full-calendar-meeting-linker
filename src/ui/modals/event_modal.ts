@@ -220,14 +220,12 @@ export function launchEventDetailsModal(plugin: FullCalendarPlugin, eventId: str
         calendarName,
         location,
         onClose: () => closeModal(),
-        onOpenNote: location
-          ? () => {
+        onOpenNote: () => {
               void (async () => {
                 await openFileForEvent(plugin.cache, plugin.app, eventId);
                 closeModal();
               })();
             }
-          : undefined
       })
     );
   }).open();

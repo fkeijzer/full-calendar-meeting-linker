@@ -15,7 +15,7 @@
  */
 
 import EventCache from '../core/EventCache';
-import { MarkdownView, TFile, Vault, Workspace, Notice } from 'obsidian';
+import { MarkdownView, TFile, Vault, Workspace, Notice, MetadataCache } from 'obsidian';
 import { t } from '../features/i18n/i18n';
 
 /**
@@ -27,30 +27,72 @@ import { t } from '../features/i18n/i18n';
  */
 export async function openFileForEvent(
   cache: EventCache,
-  { workspace, vault }: { workspace: Workspace; vault: Vault },
+  {
+    workspace,
+    vault,
+    metadataCache
+  }: { workspace: Workspace; vault: Vault; metadataCache: MetadataCache },
   id: string
 ) {
   const details = cache.store.getEventDetails(id);
-  if (!details || !details.location) {
-    new Notice(t('notices.cannotOpenRemote'));
+
+  // 1. Haal de stabiele data uit de juiste velden (details.event.xxx)
+  const stableId = details?.event?.uid;
+  const title = details?.event?.title || 'Untitled Meeting';
+
+  if (!stableId) {
+    console.error('Geen stabiele UID gevonden in event details!', details);
+    new Notice('Fout: Dit event heeft geen unieke ID.');
     return;
   }
-  const {
-    location: { path, lineNumber }
-  } = details;
 
-  const file = vault.getAbstractFileByPath(path);
-  if (!(file instanceof TFile)) {
-    return;
-  }
+  console.log(`Zoeken naar note voor event: "${title}" met UID: ${stableId}`);
 
-  // The new logic:
-  // Use 'split' to create a new pane to the side.
-  // Alternative: Use `workspace.getLeaf(true)` to open in a new tab.
-  const leaf = workspace.getLeaf(true);
-  await leaf.openFile(file);
+  // 2. Scan de vault op de UID
+  const markdownFiles = vault.getMarkdownFiles();
+  let targetFile = markdownFiles.find(file => {
+    const fileCache = metadataCache.getFileCache(file);
+    // Vergelijk de opgeslagen ID met de UID uit de JSON
+    return fileCache?.frontmatter?.['outlook-id'] === stableId;
+  });
 
-  if (lineNumber && leaf.view instanceof MarkdownView) {
-    leaf.view.editor.setCursor({ line: lineNumber, ch: 0 });
+  if (targetFile) {
+    console.log('Match gevonden! Bestaande note wordt geopend.');
+    const leaf = workspace.getLeaf(true);
+    await leaf.openFile(targetFile);
+  } else {
+    console.log('Geen match. Nieuwe note aanmaken...');
+    const folderPath = 'Meetings';
+
+    if (!(await vault.adapter.exists(folderPath))) {
+      await vault.createFolder(folderPath);
+    }
+
+    // Maak de titel veilig voor bestandsnamen
+    const safeTitle = title.replace(/[\\/:*?"<>|]/g, '');
+    const filePath = `${folderPath}/${safeTitle}.md`;
+
+    const fileContent = `---
+outlook-id: ${stableId}
+type: meeting
+date: ${(details.event as any).date || new Date().toISOString()}
+---
+# ${title}
+
+## Notes
+- `;
+
+    try {
+      const newFile = await vault.create(filePath, fileContent);
+      const leaf = workspace.getLeaf(true);
+      await leaf.openFile(newFile);
+    } catch (error) {
+      console.error('Fout bij aanmaken:', error);
+      // Als de file al bestaat op naam, maar de ID klopte niet, open hem dan alsnog
+      const existingFile = vault.getAbstractFileByPath(filePath);
+      if (existingFile instanceof TFile) {
+        await workspace.getLeaf(true).openFile(existingFile);
+      }
+    }
   }
 }

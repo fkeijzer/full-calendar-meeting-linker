@@ -25,6 +25,10 @@ import { OFCEvent, validateEvent } from '../../types';
  */
 function mapWindowsTimezoneToIANA(windowsTz: string): string | null {
   const windowsToIANA: Record<string, string> = {
+    // Missing Outlook mappings
+    'Romance Standard Time': 'Europe/Paris',
+    'Central European Standard Time': 'Europe/Berlin',
+    'Customized Time Zone': 'Europe/Amsterdam',
     // Western Europe
     'W. Europe Standard Time': 'Europe/Berlin',
     'Central Europe Standard Time': 'Europe/Budapest',
