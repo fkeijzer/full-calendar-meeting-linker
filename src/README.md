@@ -1,4 +1,14 @@
-[![Version](https://img.shields.io/badge/Version-v0.12.0-blue)](https://github.com/YouFoundJK/plugin-full-calendar)
+[![Version](https://img.shields.io/badge/Version-v1.0.0-orange)](https://github.com/fkeijzer/full-calendar-meeting-linker)
+
+# Full Calendar (Meeting Note Edition) 📅📝
+
+This is a custom fork of the original [Full Calendar plugin by Jovi Koikkara](https://github.com/davish/obsidian-full-calendar).
+
+## 🚀 Enhancements in this Fork
+- **Stable Outlook Linking:** Uses the unique Outlook UID to link events to notes. Rename or move your notes without breaking the link!
+- **Automated Meeting Notes:** Added a "Notes" button to the event popup (even for read-only iCal feeds) that creates a new note in your `/Meetings` folder.
+- **Timezone Fixes:** Added support for Outlook's "Romance Standard Time" and other Windows-specific timezone identifiers.
+- **UI Tweaks:** Polished the modal footer to align the "Notes" and "Close" buttons according to Obsidian standards.
 
 # Full Calendar Plugin - Developer Documentation
 

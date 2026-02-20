@@ -1,29 +1,22 @@
+[![Version](https://img.shields.io/badge/Version-v1.0.0-orange)](https://github.com/fkeijzer/full-calendar-meeting-linker)
 
-<!-- ![Obsidian Downloads](https://img.shields.io/badge/dynamic/json?logo=obsidian&color=%23483699&label=downloads&query=%24%5B%22obsidian-full-calendar%22%5D.downloads&url=https%3A%2F%2Fraw.githubusercontent.com%2Fobsidianmd%2Fobsidian-releases%2Fmaster%2Fcommunity-plugin-stats.json) -->
-[![Version](https://img.shields.io/badge/Version-v_0.12.5-blue)](https://youfoundjk.github.io/plugin-full-calendar/)
+# Full Calendar (Meeting Note Edition)
 
-# Full Calendar (Remastered) Plugin
+> This is a custom fork of the [Full Calendar Remastered](https://github.com/YouFoundJK/plugin-full-calendar) plugin by Jovi Koikkara, which was based on the original work by [Davis Haupt](https://davi.sh/).
 
-> This is the remastered edition of original [Full Calender plugin](https://github.com/obsidian-community/obsidian-full-calendar) by [Davis Haupt](https://davi.sh/), with the [core additions](https://youfoundjk.github.io/plugin-full-calendar/whats_new/).
+## Enhancements in this Fork
+This version was specifically modified by **Flip Keijzer** to bridge the gap between read-only Outlook/iCal calendars and Obsidian notes.
 
-Keep your calendar in your vault! This plugin integrates the [FullCalendar](https://github.com/fullcalendar/fullcalendar) library into your Obsidian Vault so that you can keep your ever-changing daily schedule and special events and plans alongside your tasks and notes, and link freely between all of them. Each event is stored as a separate note with special frontmatter so you can take notes, form connections and add context to any event on your calendar.
+- **Stable UID Linking:** Uses the unique Outlook UID to link events to notes. You can now rename or move your notes within your vault without breaking the link to the calendar event.
+- **Automated Meeting Notes:** Added a "Notes" button to the event details modal for all calendars. It automatically creates a structured meeting note in your `/Meetings` folder.
+- **Outlook Timezone Support:** Fixed common "Invalid Timezone" errors by mapping Windows/Outlook identifiers (like *Romance Standard Time*) to IANA standards.
+- **Polished UI:** Aligned the "Notes" and "Close" buttons in the event modal to match Obsidian's native design language.
 
-Full Calendar can pull events from frontmatter on notes, or from event lists in daily notes. Full Calendar also supports read-only ICS and CalDAV remote calendars.
+## Installation
+1. Download the latest `main.js`, `manifest.json`, and `styles.css` from the [releases page](https://github.com/fkeijzer/full-calendar-meeting-linker/releases).
+2. Create a folder named `full-calendar-meeting-linker` in your `.obsidian/plugins/` directory.
+3. Place the downloaded files in that folder and restart Obsidian.
 
-You can find the full documentation [here](https://youfoundjk.github.io/plugin-full-calendar/)!
+---
 
-![Sample Calendar](https://raw.githubusercontent.com/YouFoundJK/plugin-full-calendar/main/docs/assets/sample-calendar.png)
-
-The FullCalendar library is released under the [GPLv3 license](https://fullcalendar.io/license). It's an awesome piece of work, and it would not have been possible to make something like this plugin so easily without it.
-
-[![Support me on Ko-Fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/youfoundjk)
-
-### Installation
-
-You can also head over to the [releases page](https://github.com/YouFoundJK/plugin-full-calendar/releases/latest) and unzip the latest release inside of the `.obsidian/plugins` directory inside your vault.
-
-Or install via **BRAT**:
-
-1. Install the [Obsidian42 BRAT](https://github.com/TfTHacker/obsidian42-brat) community plugin.
-2. In BRAT, add this repo URL: `https://github.com/YouFoundJK/plugin-full-calendar`.
-3. Click **Add Plugin** and let Obsidian download it. Restart if prompted.
+The FullCalendar library is released under the [GPLv3 license](https://fullcalendar.io/license).
