@@ -1,6 +1,6 @@
-import esbuild from "esbuild";
-import process from "process";
-import builtins from "builtin-modules";
+import esbuild from 'esbuild';
+import process from 'process';
+import builtins from 'builtin-modules';
 import fs from 'fs';
 import path from 'path';
 
@@ -10,80 +10,79 @@ if you want to view the source, please visit the github repository of this plugi
 */
 `;
 
-const prod = process.argv[2] === "production";
+const prod = process.argv[2] === 'production';
 
 async function build() {
   const context = await esbuild.context({
     banner: {
-      js: banner,
+      js: banner
     },
-    entryPoints: ["src/main.ts"],
+    entryPoints: ['src/main.ts'],
     bundle: true,
     external: [
-      "obsidian",
-      "electron",
-      "@codemirror/autocomplete",
-      "@codemirror/closebrackets",
-      "@codemirror/collab",
-      "@codemirror/commands",
-      "@codemirror/comment",
-      "@codemirror/fold",
-      "@codemirror/gutter",
-      "@codemirror/highlight",
-      "@codemirror/history",
-      "@codemirror/language",
-      "@codemirror/lint",
-      "@codemirror/matchbrackets",
-      "@codemirror/panel",
-      "@codemirror/rangeset",
-      "@codemirror/rectangular-selection",
-      "@codemirror/search",
-      "@codemirror/state",
-      "@codemirror/stream-parser",
-      "@codemirror/text",
-      "@codemirror/tooltip",
-      "@codemirror/view",
-      ...builtins,
+      'obsidian',
+      'electron',
+      '@codemirror/autocomplete',
+      '@codemirror/closebrackets',
+      '@codemirror/collab',
+      '@codemirror/commands',
+      '@codemirror/comment',
+      '@codemirror/fold',
+      '@codemirror/gutter',
+      '@codemirror/highlight',
+      '@codemirror/history',
+      '@codemirror/language',
+      '@codemirror/lint',
+      '@codemirror/matchbrackets',
+      '@codemirror/panel',
+      '@codemirror/rangeset',
+      '@codemirror/rectangular-selection',
+      '@codemirror/search',
+      '@codemirror/state',
+      '@codemirror/stream-parser',
+      '@codemirror/text',
+      '@codemirror/tooltip',
+      '@codemirror/view',
+      ...builtins
     ],
-    format: "cjs",
-    target: "es2016",
-    logLevel: "info",
+    format: 'cjs',
+    target: 'es2016',
+    logLevel: 'info',
     minify: prod,
-    sourcemap: prod ? false : "inline",
+    sourcemap: prod ? false : 'inline',
     treeShaking: true,
-    entryNames: "[name]", // Use the entry name as the output name
+    entryNames: '[name]', // Use the entry name as the output name
     plugins: [
       {
         name: 'rename-css-plugin',
         setup(build) {
           build.onEnd(() => {
-
-            const outputDir = "./";
-            const oldCssPath = path.join(outputDir, "main.css");
-            const newCssPath = path.join(outputDir, "styles.css");
+            const outputDir = './';
+            const oldCssPath = path.join(outputDir, 'main.css');
+            const newCssPath = path.join(outputDir, 'styles.css');
 
             // Rename CSS file
             if (fs.existsSync(oldCssPath)) {
               fs.renameSync(oldCssPath, newCssPath);
-              console.log(" | Renamed CSS to styles.css");
+              console.log(' | Renamed CSS to styles.css');
             } else {
-              console.warn("⚠️ CSS file not found to rename");
+              console.warn('⚠️ CSS file not found to rename');
             }
 
             // Copy manifest.json
-            const manifestSrc = path.join(process.cwd(), "manifest.json");
-            const manifestDest = path.join(outputDir, "manifest.json");
+            const manifestSrc = path.join(process.cwd(), 'manifest.json');
+            const manifestDest = path.join(outputDir, 'manifest.json');
             try {
               fs.copyFileSync(manifestSrc, manifestDest);
-              console.log(" | Copied manifest.json to dev vault");
+              console.log(' | Copied manifest.json to dev vault');
             } catch (err) {
-              console.warn("⚠️ Could not copy manifest.json:", err);
+              console.warn('⚠️ Could not copy manifest.json:', err);
             }
           });
         }
       }
     ],
-    outfile: "main.js",
+    outfile: 'main.js'
   });
 
   if (!prod) {

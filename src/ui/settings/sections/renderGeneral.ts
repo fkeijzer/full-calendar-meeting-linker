@@ -4,7 +4,7 @@
  * @license See LICENSE.md
  */
 
-import { Setting } from 'obsidian';
+import { Setting, TFolder } from 'obsidian'; // Samengevoegde import
 import FullCalendarPlugin from '../../../main';
 import { t } from '../../../features/i18n/i18n';
 
@@ -34,19 +34,31 @@ export function renderGeneralSettings(
     desktopViewOptions['resourceTimelineDay'] = 'settings.viewOptions.timelineDay';
   }
 
+  // --- NIEUW: MAPPENLIJST LOGICA ---
+  const directories = plugin.app.vault
+    .getAllLoadedFiles()
+    .filter((f): f is TFolder => f instanceof TFolder)
+    .map(f => f.path)
+    .sort();
+
+  const folderOptions: Record<string, string> = {};
+  directories.forEach(path => {
+    folderOptions[path] = path;
+  });
+
   new Setting(containerEl)
-    .setName(t('settings.general.desktopInitialView.label'))
-    .setDesc(t('settings.general.desktopInitialView.description'))
+    .setName('Meeting notes folder')
+    .setDesc('Kies de map waar nieuwe meeting notes worden opgeslagen.')
     .addDropdown(dropdown => {
-      Object.entries(desktopViewOptions).forEach(([value, labelKey]) => {
-        dropdown.addOption(value, t(labelKey));
-      });
-      dropdown.setValue(plugin.settings.initialView.desktop);
-      dropdown.onChange(async initialView => {
-        plugin.settings.initialView.desktop = initialView;
-        await plugin.saveSettings();
-      });
+      dropdown
+        .addOptions(folderOptions)
+        .setValue(plugin.settings.meetingNoteFolder || 'Meetings')
+        .onChange(async value => {
+          plugin.settings.meetingNoteFolder = value;
+          await plugin.saveSettings();
+        });
     });
+  // --- EINDE MAPPENLIJST ---
 
   new Setting(containerEl)
     .setName(t('settings.general.mobileInitialView.label'))

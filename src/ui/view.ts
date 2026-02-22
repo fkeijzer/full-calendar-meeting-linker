@@ -627,7 +627,16 @@ export class CalendarView extends ItemView {
                 info.jsEvent.getModifierState('Meta')
               ) {
                 const { openFileForEvent } = await import('../utils/eventActions');
-                await openFileForEvent(this.plugin.cache, this.app, info.event.id);
+                await openFileForEvent(
+                  this.plugin.cache,
+                  {
+                    workspace: this.app.workspace,
+                    vault: this.app.vault,
+                    metadataCache: this.app.metadataCache,
+                    settings: this.plugin.settings
+                  },
+                  info.event.id
+                );
                 return;
               }
 
@@ -838,7 +847,16 @@ export class CalendarView extends ItemView {
                   return;
                 }
                 void import('../utils/eventActions').then(({ openFileForEvent }) =>
-                  openFileForEvent(this.plugin.cache, this.app, e.id)
+                  openFileForEvent(
+                    this.plugin.cache,
+                    {
+                      workspace: this.app.workspace,
+                      vault: this.app.vault,
+                      metadataCache: this.app.metadataCache,
+                      settings: this.plugin.settings
+                    },
+                    e.id
+                  )
                 );
               })
             );

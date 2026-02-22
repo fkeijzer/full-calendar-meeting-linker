@@ -29,7 +29,16 @@ export function launchReminderModal(
         onOpen: () => {
           void (async () => {
             try {
-              await openFileForEvent(plugin.cache, plugin.app, eventId);
+              await openFileForEvent(
+                plugin.cache, 
+                { 
+                  workspace: plugin.app.workspace, 
+                  vault: plugin.app.vault, 
+                  metadataCache: plugin.app.metadataCache, 
+                  settings: plugin.settings 
+                }, 
+                eventId
+              );
             } catch (e) {
               new Notice('Could not open event file.');
               console.error(e);

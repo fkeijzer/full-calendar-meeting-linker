@@ -9,7 +9,7 @@ Using the core **Page Preview** plugin, you can hold `Ctrl`/`Cmd` and hover over
 This is a great way to quickly see meeting notes, agendas, or other context you've added to an event's note.
 
 !!! note
-    You can disable the `Ctrl`/`Cmd` key requirement in the "Page Preview" core plugin settings.
+You can disable the `Ctrl`/`Cmd` key requirement in the "Page Preview" core plugin settings.
 
 ![Hover for Preview](../assets/hover-description.gif)
 
@@ -18,8 +18,9 @@ This is a great way to quickly see meeting notes, agendas, or other context you'
 Right-click on any event to open a context menu with quick actions.
 
 For local, editable events, you can:
--   **Turn into task / Remove checkbox:** Quickly toggle an event's task status.
--   **Go to note:** Jump directly to the event's source note, opening it in a **new tab**.
--   **Delete:** Delete the event without opening the editor.
+
+- **Turn into task / Remove checkbox:** Quickly toggle an event's task status.
+- **Go to note:** Jump directly to the event's source note, opening it in a **new tab**.
+- **Delete:** Delete the event without opening the editor.
 
 ![Context Menu](../assets/context-menu.gif)

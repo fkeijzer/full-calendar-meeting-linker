@@ -40,6 +40,7 @@ Sub-Category: Project Alpha
 This event will appear in the "Project Alpha" lane under the "Work" category in Timeline View.
 
 ## Tips
+
 - Use sub-categories for granular organization (e.g., "Client A - Design Review").
 - Parent categories show shadow events for quick overview of all child events.
 - Timeline View works with local, remote, and Google Calendar events.

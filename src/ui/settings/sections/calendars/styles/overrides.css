@@ -1,162 +1,161 @@
 .is-phone .fc {
-	height: calc(100% - 4rem);
+  height: calc(100% - 4rem);
 }
 .fc {
-	height: 100%;
-	--fc-button-text-color: var(--text-normal);
-	--fc-button-bg-color: var(--interactive-normal);
-	--fc-button-border-color: var(--interactive-normal);
+  height: 100%;
+  --fc-button-text-color: var(--text-normal);
+  --fc-button-bg-color: var(--interactive-normal);
+  --fc-button-border-color: var(--interactive-normal);
 
-	--fc-button-hover-bg-color: var(--interactive-hover);
-	--fc-button-hover-border-color: var(--interactive-hover);
+  --fc-button-hover-bg-color: var(--interactive-hover);
+  --fc-button-hover-border-color: var(--interactive-hover);
 
-	--fc-button-active-border-color: var(--interactive-accent);
-	--fc-button-active-bg-color: var(--interactive-accent);
+  --fc-button-active-border-color: var(--interactive-accent);
+  --fc-button-active-bg-color: var(--interactive-accent);
 
-	--fc-event-border-color: var(--interactive-accent);
-	--fc-event-bg-color: var(--interactive-accent);
-	--fc-event-text-color: var(--text-on-accent);
+  --fc-event-border-color: var(--interactive-accent);
+  --fc-event-bg-color: var(--interactive-accent);
+  --fc-event-text-color: var(--text-on-accent);
 
-	--fc-list-event-hover-bg-color: var(--background-secondary);
-	--fc-neutral-bg-color: var(--background-primary-alt);
+  --fc-list-event-hover-bg-color: var(--background-secondary);
+  --fc-neutral-bg-color: var(--background-primary-alt);
 
-	--fc-page-bg-color: var(--background-primary);
-	--fc-border-color: var(--background-modifier-border);
+  --fc-page-bg-color: var(--background-primary);
+  --fc-border-color: var(--background-modifier-border);
 
-	--fc-now-indicator-color: var(--text-error-hover);
+  --fc-now-indicator-color: var(--text-error-hover);
 
-	--fc-more-link-bg-color: var(--background-primary-alt);
-	--fc-more-link-text-color: var(--text-accent);
+  --fc-more-link-bg-color: var(--background-primary-alt);
+  --fc-more-link-text-color: var(--text-accent);
 
-	--fc-today-bg-color: var(--background-modifier-cover);
+  --fc-today-bg-color: var(--background-modifier-cover);
 
-	--fc-neutral-text-color: var(--text-muted);
-	--fc-neutral-bg-color: var(--interactive-normal);
+  --fc-neutral-text-color: var(--text-muted);
+  --fc-neutral-bg-color: var(--interactive-normal);
 
-	--fc-highlight-color: var(--text-highlight-bg);
-	--fc-bg-event-color: var(--background-modifier-success);
-	--fc-non-business-color: var(--background-modifier-box-shadow);
+  --fc-highlight-color: var(--text-highlight-bg);
+  --fc-bg-event-color: var(--background-modifier-success);
+  --fc-non-business-color: var(--background-modifier-box-shadow);
 }
 
 .fc a {
-	text-decoration-line: none;
+  text-decoration-line: none;
 }
 
 .fc-button-active {
-	color: var(--text-on-accent) !important;
+  color: var(--text-on-accent) !important;
 }
 .fc .fc-button {
-	border: 0px solid transparent !important;
-	line-height: 1 !important;
-	padding: var(--size-4-1) var(--size-4-3) !important;
+  border: 0px solid transparent !important;
+  line-height: 1 !important;
+  padding: var(--size-4-1) var(--size-4-3) !important;
 }
 
 .ofc-has-checkbox {
-	display: flex !important;
+  display: flex !important;
 }
 
 .ofc-has-checkbox.fc-list-event-title {
-	align-items: center;
+  align-items: center;
 }
 
 .ofc-task-completed .fc-event-title {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .ofc-task-completed .fc-list-event-title {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .ofc-task-completed {
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
 .ofc-checkbox-white {
-	border-color: white !important;
-	border-width: 1px !important;
+  border-color: white !important;
+  border-width: 1px !important;
 }
 
 .ofc-checkbox-black {
-	border-color: black !important;
-	border-width: 1px !important;
+  border-color: black !important;
+  border-width: 1px !important;
 }
 
 /* Styles for the new Edit/Create Event Modal */
 .full-calendar-edit-modal .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
 }
 
 .full-calendar-edit-modal .modal-header h2 {
-    margin: 0;
+  margin: 0;
 }
 
 /* POINT 1: LAYOUT REFINEMENT */
 .full-calendar-edit-modal .setting-item {
-    display: flex;
-    align-items: center; /* Vertically align label and control */
-    gap: 1em; /* Space between label and control */
+  display: flex;
+  align-items: center; /* Vertically align label and control */
+  gap: 1em; /* Space between label and control */
 }
 
 .full-calendar-edit-modal .setting-item-info {
-    flex: 0 0 100px; /* Give labels a fixed width of 100px */
-    font-weight: 500;
+  flex: 0 0 100px; /* Give labels a fixed width of 100px */
+  font-weight: 500;
 }
 
 .full-calendar-edit-modal .setting-item-control {
-    flex: 1; /* Allow controls to take up the remaining space */
-    display: flex;
+  flex: 1; /* Allow controls to take up the remaining space */
+  display: flex;
 }
 
-.full-calendar-edit-modal .setting-item-control input[type="text"],
-.full-calendar-edit-modal .setting-item-control input[type="date"],
+.full-calendar-edit-modal .setting-item-control input[type='text'],
+.full-calendar-edit-modal .setting-item-control input[type='date'],
 .full-calendar-edit-modal .setting-item-control select {
-    width: 100%;
+  width: 100%;
 }
 
 .full-calendar-edit-modal hr.modal-hr {
-    margin: 1.2em 0;
-    border-color: var(--background-modifier-border);
+  margin: 1.2em 0;
+  border-color: var(--background-modifier-border);
 }
 
 .full-calendar-edit-modal .time-group,
 .full-calendar-edit-modal .options-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .full-calendar-edit-modal .options-group label {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
 }
 
 /* POINT 4: DISABLED STATE STYLING */
 .full-calendar-edit-modal .time-setting-item.is-disabled {
-    opacity: 0.5;
-    pointer-events: none; /* Ignore clicks */
+  opacity: 0.5;
+  pointer-events: none; /* Ignore clicks */
 }
 .full-calendar-edit-modal .time-setting-item.is-disabled .setting-item-info {
-    /* Optional: slightly different color for disabled label */
-    color: var(--text-muted);
+  /* Optional: slightly different color for disabled label */
+  color: var(--text-muted);
 }
 
-
 .full-calendar-edit-modal .modal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
 }
 
 .full-calendar-edit-modal .footer-actions-left {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 /* src/ui/overrides.css */
@@ -165,61 +164,60 @@
 
 /* Styles for the confirmation/warning modal in settings */
 .full-calendar-confirm-modal .modal-content {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .full-calendar-confirm-modal h2 {
-    color: var(--text-error); /* Use error color for warning titles */
-    text-align: center;
-    margin-bottom: 1.2rem;
+  color: var(--text-error); /* Use error color for warning titles */
+  text-align: center;
+  margin-bottom: 1.2rem;
 }
 
 .full-calendar-confirm-modal p {
-    color: var(--text-normal);
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  color: var(--text-normal);
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .full-calendar-confirm-modal .fc-confirm-highlight {
-    background-color: var(--background-modifier-accent);
-    padding: 0.8rem 1rem;
-    border-radius: var(--radius-m);
-    border-left: 4px solid var(--interactive-accent);
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
+  background-color: var(--background-modifier-accent);
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-m);
+  border-left: 4px solid var(--interactive-accent);
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .full-calendar-confirm-modal .fc-confirm-highlight p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .full-calendar-confirm-modal .fc-confirm-highlight p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-
 .full-calendar-confirm-modal code {
-    background-color: var(--background-modifier-hover);
-    padding: 0.1em 0.4em;
-    border-radius: var(--radius-s);
-    font-size: 0.9em;
+  background-color: var(--background-modifier-hover);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-s);
+  font-size: 0.9em;
 }
 
 .full-calendar-confirm-modal strong {
-    color: var(--text-accent);
+  color: var(--text-accent);
 }
 
 .full-calendar-confirm-modal .setting-item {
-    justify-content: center; /* Center the buttons */
-    margin-top: 1.5rem;
+  justify-content: center; /* Center the buttons */
+  margin-top: 1.5rem;
 }
 
-.full-calendar-edit-modal .options-group label:has(input[type="checkbox"]:disabled) {
-    opacity: 0.5;
+.full-calendar-edit-modal .options-group label:has(input[type='checkbox']:disabled) {
+  opacity: 0.5;
 }
 
 .full-calendar-edit-modal .setting-item-control.is-override-disabled,
 .full-calendar-edit-modal .setting-item-control.is-override-disabled input {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .full-calendar-edit-modal .options-group label.is-disabled {
@@ -229,99 +227,99 @@
 
 /* Onboarding Screen Styles */
 .full-calendar-onboarding-container {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Day Choice Button for Edit Event Modal */
 .day-choice-button {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    padding: 0;
-    background-color: var(--interactive-normal);
-    color: var(--text-normal);
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  padding: 0;
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
 }
 
 .day-choice-button.is-selected {
-    background-color: var(--interactive-accent);
-    color: var(--text-on-accent);
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
 }
 
 /* Generic styles for inputs in calendar settings */
 .fc-setting-input {
-    width: 100%;
-    margin-left: 4px;
-    margin-right: 4px;
+  width: 100%;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 /* Styles for the Heading setting component */
 .fc-heading-setting-control {
-    display: block;
-    text-align: center;
+  display: block;
+  text-align: center;
 }
 
 .fc-heading-setting-control .fc-setting-input.is-inline {
-    margin-left: 4px;
-    margin-right: 4px;
-    /* Overriding width for inline appearance */
-    width: auto;
+  margin-left: 4px;
+  margin-right: 4px;
+  /* Overriding width for inline appearance */
+  width: auto;
 }
 
 .fc-heading-setting-control .fc-heading-setting-suffix {
-    padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 
 /* Styles for specific controls in calendar settings */
 .fc-setting-delete-btn {
-    max-width: 15%;
+  max-width: 15%;
 }
 
 .fc-setting-color-input {
-    max-width: 25%;
-    min-width: 3rem;
+  max-width: 25%;
+  min-width: 3rem;
 }
 
 /* Shadow events styling for resourceTimeline view */
 .fc-event-shadow {
-    opacity: 0.4 !important;
-    pointer-events: none !important;
-    cursor: default !important;
+  opacity: 0.4 !important;
+  pointer-events: none !important;
+  cursor: default !important;
 }
 
 .fc-event-shadow .fc-event-main {
-    opacity: 0.6 !important;
+  opacity: 0.6 !important;
 }
 
 .fc-event-shadow .fc-event-title {
-    font-style: italic;
-    opacity: 0.8;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 /* Ensure shadow events don't interfere with interactions */
 .fc-event-shadow:hover {
-    opacity: 0.4 !important;
+  opacity: 0.4 !important;
 }
 
 .fc-resource-timeline .fc-datagrid-cell.fc-resource.fc-resource-group {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .fc-resource-timeline .fc-datagrid-cell.fc-resource.fc-resource-group:hover {
-    background-color: var(--background-modifier-hover);
+  background-color: var(--background-modifier-hover);
 }
 
 /* Indent dependent settings for better visual grouping */
 .fc-indented-setting {
-    padding-left: 2.5em;
-    border-left: 2px solid var(--background-modifier-border);
-    margin-left: 0.5em;
+  padding-left: 2.5em;
+  border-left: 2px solid var(--background-modifier-border);
+  margin-left: 0.5em;
 }
 
 /* Workspace management styles */
@@ -389,7 +387,7 @@
 
 /* Utility class to prevent body scrolling when overlays/modals are open */
 .no-scroll {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 .workspace-calendar-filter {

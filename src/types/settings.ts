@@ -50,6 +50,7 @@ export interface GoogleAccount {
 }
 
 export interface FullCalendarSettings {
+  meetingNoteFolder: string;
   calendarSources: CalendarInfo[];
   defaultCalendar: number;
   firstDay: number;
@@ -87,6 +88,7 @@ export interface FullCalendarSettings {
 }
 
 export const DEFAULT_SETTINGS: FullCalendarSettings = {
+  meetingNoteFolder: '00_Meetings',
   calendarSources: [],
   defaultCalendar: 0,
   firstDay: 0,

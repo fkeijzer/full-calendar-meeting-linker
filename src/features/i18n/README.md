@@ -9,6 +9,7 @@ The Full Calendar plugin uses [i18next](https://www.i18next.com/) for internatio
 ## Available Languages
 
 Currently supported languages:
+
 - **English (en)** - Default language
 
 ## How It Works
@@ -37,13 +38,14 @@ Translate all the text values in your new file. **Important guidelines:**
   - Maintain line breaks and punctuation as needed for your language
 
 Example:
+
 ```json
 {
   "commands": {
-    "newEvent": "Nouvel événement"  // ✅ Correct
+    "newEvent": "Nouvel événement" // ✅ Correct
   },
   "notices": {
-    "providerNotRegistered": "Le fournisseur {{providerType}} n'est pas enregistré."  // ✅ Correct - placeholder preserved
+    "providerNotRegistered": "Le fournisseur {{providerType}} n'est pas enregistré." // ✅ Correct - placeholder preserved
   }
 }
 ```
@@ -56,7 +58,7 @@ Edit `src/i18n/i18n.ts` to import and register your new translation:
 // Import translation resources
 import en from './locales/en.json';
 import de from './locales/de.json';
-import fr from './locales/fr.json';  // Add your new import
+import fr from './locales/fr.json'; // Add your new import
 
 /**
  * Type-safe translation resources
@@ -64,7 +66,7 @@ import fr from './locales/fr.json';  // Add your new import
 const resources = {
   en: { translation: en },
   de: { translation: de },
-  fr: { translation: fr }  // Add your new language
+  fr: { translation: fr } // Add your new language
 };
 ```
 
@@ -144,6 +146,7 @@ new Notice(t('notices.providerNotRegistered', { providerType: 'caldav' }));
 ## Questions or Issues?
 
 If you encounter any problems or have questions about translations:
+
 - Open an issue on GitHub
 - Tag it with the `i18n` label
 - Include your language code and specific questions

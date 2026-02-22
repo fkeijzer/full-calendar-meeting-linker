@@ -17,6 +17,7 @@ Save and switch between customized calendar setups with Workspaces. A workspace 
 4. Use the workspace switcher in the header to load it later.
 
 Tips:
+
 - Set a Default Workspace in Settings to load it when opening the calendar.
 - Rename or delete workspaces from the same menu.
 

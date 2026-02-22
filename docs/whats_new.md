@@ -3,7 +3,6 @@
 This page highlights the latest major features and improvements to help you get the most out of the plugin.  
 For a detailed version-by-version breakdown, see the [Changelog](changelog.md).
 
-
 ## ✅ CalDAV Two-Way Sync
 
 You asked, we delivered. CalDAV calendars now support full two-way synchronization. Create, modify, and delete events from your private iCloud, Fastmail, or self-hosted CalDAV servers directly within Obsidian.
@@ -15,7 +14,6 @@ You asked, we delivered. CalDAV calendars now support full two-way synchronizati
 CalDAV imports now verify that the URL is a real calendar collection via PROPFIND, with clearer errors when a non-calendar endpoint is pasted. Google Calendar recurring events respect their source timezone, hide deleted instances reliably, and the mobile OAuth flow opens a safe placeholder tab to avoid popup blockers.
 
 ---
-
 
 ## 🌐 Multi-Language Support
 
@@ -92,10 +90,10 @@ Visualize your schedule by category and sub-category with the new **Timeline Vie
 
 Supercharge your calendar's organization with Advanced Categories! This new system allows you to override a calendar's default color for specific events based on a category prefix in the event's title. It's the foundation for many powerful features to come.
 
--   **Universal Organization:** Works for local and remote calendars. An event from Google Calendar titled `Work - Project Deadline` will be colored correctly in Obsidian.
--   **Sub-Categories:** Organize even further with a `Category - SubCategory - Title` format.
--   **Smart Setup:** When you enable the feature, the plugin can automatically categorize your existing events based on their folder structure.
--   **Autocomplete Editor:** The event editor now has a dedicated "Category" field with autocomplete suggestions for all your existing categories, ensuring consistency.
+- **Universal Organization:** Works for local and remote calendars. An event from Google Calendar titled `Work - Project Deadline` will be colored correctly in Obsidian.
+- **Sub-Categories:** Organize even further with a `Category - SubCategory - Title` format.
+- **Smart Setup:** When you enable the feature, the plugin can automatically categorize your existing events based on their folder structure.
+- **Autocomplete Editor:** The event editor now has a dedicated "Category" field with autocomplete suggestions for all your existing categories, ensuring consistency.
 
 ➡️ **[Learn how to set up Advanced Categories](events/categories.md)**
 
@@ -131,18 +129,18 @@ Unlock powerful insights into your time with Chrono Analyser! Chrono Analyser is
 
 Travel and collaborate across timezones with confidence. Full Calendar is now fully timezone-aware, ensuring your events always appear at the correct local time, no matter where you are.
 
--   **Display Timezone:** Set a specific timezone for your calendar view, independent of your system's timezone. Perfect for planning trips or coordinating with remote teams.
--   **Automatic Conversion:** Events from all sources—local notes, daily notes, and remote calendars like Google Calendar—are automatically converted to your chosen display timezone.
--   **DST Safe:** All conversions are Daylight Saving Time aware, so you never have to worry about "fall back" or "spring forward" bugs again.
+- **Display Timezone:** Set a specific timezone for your calendar view, independent of your system's timezone. Perfect for planning trips or coordinating with remote teams.
+- **Automatic Conversion:** Events from all sources—local notes, daily notes, and remote calendars like Google Calendar—are automatically converted to your chosen display timezone.
+- **DST Safe:** All conversions are Daylight Saving Time aware, so you never have to worry about "fall back" or "spring forward" bugs again.
 
 ➡️ **[Read more about Timezone Support](events/timezones.md)**
 
 ---
 
-##  🖌️ Redesigned Event Editor
+## 🖌️ Redesigned Event Editor
 
 The event editor has been completely redesigned from the ground up for a cleaner, more intuitive experience.
 
--   **Two-Column Layout:** A polished layout makes it easier to find and edit the fields you need.
--   **Logical Grouping:** Date, time, and recurrence options are logically grouped for faster editing.
--   **Dedicated Actions:** Buttons for Save, Delete, and Open Note are neatly organized in the footer.
+- **Two-Column Layout:** A polished layout makes it easier to find and edit the fields you need.
+- **Logical Grouping:** Date, time, and recurrence options are logically grouped for faster editing.
+- **Dedicated Actions:** Buttons for Save, Delete, and Open Note are neatly organized in the footer.

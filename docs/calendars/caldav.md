@@ -3,7 +3,7 @@
 You can add any calendar that supports CalDAV over HTTPS basic authentication with a few providers already confirmed to work.
 
 !!! info
-	Paste the **calendar collection URL** (usually ending in `/events/`) when adding CalDAV. The plugin now validates the URL with a PROPFIND request and will reject endpoints that are not calendar collections.
+Paste the **calendar collection URL** (usually ending in `/events/`) when adding CalDAV. The plugin now validates the URL with a PROPFIND request and will reject endpoints that are not calendar collections.
 
 Calendars are automatically re-fetched from their source at most every five minutes. If you would like to revalidate remote calendars directly, you can run the command `Full Calendar: Revalidate remote calendars`.
 
@@ -55,7 +55,6 @@ If your email address used in the `Username` section is `user@example.com`, then
 https://caldav.fastmail.com/dav/principals/user/user@example.com/
 ```
 
-
 If in doubt, you can find the specific URL by navigating to `Settings` -> `Calendars` and then click `Export` on any of the calendars you have.
 
 Under `CalDAV URL`, you can copy the URL but make sure you **only** copy up to the trailing slash after your email address as shown in the codeblock just above.
@@ -70,4 +69,4 @@ Under `CalDAV URL`, you can copy the URL but make sure you **only** copy up to t
 
 There are a few providers which are not yet supported by the CalDAV sync option:
 
--   Google Calendar requires OAuth instead of HTTP basic authentication.
+- Google Calendar requires OAuth instead of HTTP basic authentication.

@@ -25,9 +25,9 @@ To develop locally, set up your development vault and plugin directory:
 ```bash
 mkdir -p .obsidian/.plugins/full-calendar-remastered/
 cp manifest.json .obsidian/.plugins/full-calendar-remastered/manifest.json
-````
+```
 
-*Currently this folder already exists and will contain the minimified builds accordingly the latest tags (this is done to simplify the obsidian community plugin release process).
+\*Currently this folder already exists and will contain the minimified builds accordingly the latest tags (this is done to simplify the obsidian community plugin release process).
 
 > 💡 **Note:** Obsidian expects a CSS file named `styles.css`, but **esbuild** will output one named `main.css`.
 
@@ -37,13 +37,13 @@ cp manifest.json .obsidian/.plugins/full-calendar-remastered/manifest.json
 
 You can build the plugin in two ways:
 
-* For development:
+- For development:
 
   ```bash
   npm run dev
   ```
 
-* For a production/minified build:
+- For a production/minified build:
 
   ```bash
   npm run prod

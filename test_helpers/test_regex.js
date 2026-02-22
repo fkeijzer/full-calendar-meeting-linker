@@ -15,7 +15,9 @@ const mockPropfindResponse = `
       </d:multistatus>
     `;
 
-const resourceTypeMatch = /<[^:]*:?resourcetype[^>]*>([\s\S]*?)<\/[^:]*:?resourcetype>/i.exec(mockPropfindResponse);
+const resourceTypeMatch = /<[^:]*:?resourcetype[^>]*>([\s\S]*?)<\/[^:]*:?resourcetype>/i.exec(
+  mockPropfindResponse
+);
 if (!resourceTypeMatch) {
   console.log('No resourcetype found');
 } else {

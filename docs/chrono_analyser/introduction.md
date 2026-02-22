@@ -8,7 +8,7 @@ Whether you're tracking complex work projects, building consistent habits, or ai
 
 ---
 
-**See the standalong implementation:** 
+**See the standalong implementation:**
 ➡️ [Iriginal Implementation](https://youfoundjk.github.io/Time-Analyser-Full-Calendar/)
 
 **Explore real-world scenarios:**  
@@ -23,15 +23,9 @@ Whether you're tracking complex work projects, building consistent habits, or ai
 
 The Chrono Analyser adapts to your workflow. It operates in one of two modes, depending on your main Full Calendar plugin settings.
 
-!!! success "Mode 1: Category-Based Analysis (Recommended)"
-    -   **Requirement:** The **"Category Coloring"** feature is **enabled** in the main plugin settings.
-    -   **How it Works:** The analyser uses the `Category` of your events as the top-level grouping (`Hierarchy`). This is the most powerful mode.
-    -   **Supported Calendars:** ✅ **All of them!** Full Note, Daily Note, Google Calendar, CalDAV, and ICS calendars are all included in the analysis, giving you a complete picture of your time.
+!!! success "Mode 1: Category-Based Analysis (Recommended)" - **Requirement:** The **"Category Coloring"** feature is **enabled** in the main plugin settings. - **How it Works:** The analyser uses the `Category` of your events as the top-level grouping (`Hierarchy`). This is the most powerful mode. - **Supported Calendars:** ✅ **All of them!** Full Note, Daily Note, Google Calendar, CalDAV, and ICS calendars are all included in the analysis, giving you a complete picture of your time.
 
-!!! info "Mode 2: Folder-Based Analysis (Legacy)"
-    -   **Requirement:** The **"Category Coloring"** feature is **disabled**.
-    -   **How it Works:** The analyser uses the **folder path** of your `FullNoteCalendar` sources as the `Hierarchy`.
-    -   **Supported Calendars:** ⚠️ Only events from **Full Note Calendars** are processed in this mode.
+!!! info "Mode 2: Folder-Based Analysis (Legacy)" - **Requirement:** The **"Category Coloring"** feature is **disabled**. - **How it Works:** The analyser uses the **folder path** of your `FullNoteCalendar` sources as the `Hierarchy`. - **Supported Calendars:** ⚠️ Only events from **Full Note Calendars** are processed in this mode.
 
 ---
 
@@ -61,31 +55,34 @@ This is the intelligent core of the analyser. Instead of forcing you to hunt for
 
 This is your powerful, hands-on tool for exploring your data visually.
 
--   **Global Filters:** Filter all charts by Hierarchy (Category/Folder) and Project using intuitive autocomplete inputs.
--   **Date Range Selector:** Use the interactive date picker or preset buttons (Today, This Week, etc.) to narrow your analysis to a specific period.
--   **Analysis Types:**
-    -   **Category Breakdown (Pie/Sunburst):** See how your time is distributed. Click any segment to open a detailed popup with every contributing event.
-    -   **Time-Series Trend:** Visualize your effort over time. See an overall trend line or a stacked area chart to compare categories.
-    -   **Activity Patterns:** Discover your peak productivity windows with heatmaps and charts for the day of the week and hour of the day.
+- **Global Filters:** Filter all charts by Hierarchy (Category/Folder) and Project using intuitive autocomplete inputs.
+- **Date Range Selector:** Use the interactive date picker or preset buttons (Today, This Week, etc.) to narrow your analysis to a specific period.
+- **Analysis Types:**
+  - **Category Breakdown (Pie/Sunburst):** See how your time is distributed. Click any segment to open a detailed popup with every contributing event.
+  - **Time-Series Trend:** Visualize your effort over time. See an overall trend line or a stacked area chart to compare categories.
+  - **Activity Patterns:** Discover your peak productivity windows with heatmaps and charts for the day of the week and hour of the day.
 
 ---
 
 ## Common Use Cases
 
 **The Freelancer / Consultant:**
--   Create an "Insight Group" for each client.
--   Use the "Activity Overview" insight to quickly see how many hours you've spent on each client in the last month.
--   Use the Time-Series chart to ensure your time allocation matches your project timelines.
+
+- Create an "Insight Group" for each client.
+- Use the "Activity Overview" insight to quickly see how many hours you've spent on each client in the last month.
+- Use the Time-Series chart to ensure your time allocation matches your project timelines.
 
 **The Student:**
--   Create Insight Groups like "Lectures," "Revision," and "Assignments."
--   Use the "Habit Consistency" insight to see if you're falling behind on revision for a specific subject (e.g., "It's been over a week since you've logged 'Calculus Revision'").
--   Use the Activity Patterns heatmap to find your best study times.
+
+- Create Insight Groups like "Lectures," "Revision," and "Assignments."
+- Use the "Habit Consistency" insight to see if you're falling behind on revision for a specific subject (e.g., "It's been over a week since you've logged 'Calculus Revision'").
+- Use the Activity Patterns heatmap to find your best study times.
 
 **The Habit Builder:**
--   Create an Insight Group for "Wellness" with projects like "Gym," "Meditation," and "Reading."
--   The "Habit Consistency" table will instantly show you which habits you've missed, helping you get back on track.
--   Use the "Activity Overview" to celebrate your successes (e.g., "You spent 8.5 hours on 'Wellness' activities this month!").
+
+- Create an Insight Group for "Wellness" with projects like "Gym," "Meditation," and "Reading."
+- The "Habit Consistency" table will instantly show you which habits you've missed, helping you get back on track.
+- Use the "Activity Overview" to celebrate your successes (e.g., "You spent 8.5 hours on 'Wellness' activities this month!").
 
 ---
 

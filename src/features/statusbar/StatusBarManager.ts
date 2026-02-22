@@ -129,7 +129,12 @@ export class StatusBarManager {
             if (this.currentState?.current) {
               void openFileForEvent(
                 this.plugin.cache,
-                this.plugin.app,
+                {
+                  workspace: this.plugin.app.workspace,
+                  vault: this.plugin.app.vault,
+                  metadataCache: this.plugin.app.metadataCache,
+                  settings: this.plugin.settings,
+                },
                 this.currentState.current.id
               );
             }
@@ -146,7 +151,16 @@ export class StatusBarManager {
         menu.addItem(item => {
           const time = eventData.start.toFormat('h:mm a');
           item.setTitle(`${time}: ${eventData.event.title}`).onClick(() => {
-            void openFileForEvent(this.plugin.cache, this.plugin.app, eventData.id);
+            void openFileForEvent(
+              this.plugin.cache,
+              {
+                workspace: this.plugin.app.workspace,
+                vault: this.plugin.app.vault,
+                metadataCache: this.plugin.app.metadataCache,
+                settings: this.plugin.settings,
+              },
+              eventData.id
+            );
           });
         });
       });

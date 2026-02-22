@@ -30,13 +30,18 @@ export async function openFileForEvent(
   {
     workspace,
     vault,
-    metadataCache
-  }: { workspace: Workspace; vault: Vault; metadataCache: MetadataCache },
+    metadataCache,
+    settings
+  }: {
+    workspace: Workspace;
+    vault: Vault;
+    metadataCache: MetadataCache;
+    settings: any;
+  },
   id: string
 ) {
   const details = cache.store.getEventDetails(id);
 
-  // 1. Haal de stabiele data uit de juiste velden (details.event.xxx)
   const stableId = details?.event?.uid;
   const title = details?.event?.title || 'Untitled Meeting';
 
@@ -46,29 +51,23 @@ export async function openFileForEvent(
     return;
   }
 
-  console.log(`Zoeken naar note voor event: "${title}" met UID: ${stableId}`);
-
-  // 2. Scan de vault op de UID
   const markdownFiles = vault.getMarkdownFiles();
   let targetFile = markdownFiles.find(file => {
     const fileCache = metadataCache.getFileCache(file);
-    // Vergelijk de opgeslagen ID met de UID uit de JSON
     return fileCache?.frontmatter?.['outlook-id'] === stableId;
   });
 
   if (targetFile) {
-    console.log('Match gevonden! Bestaande note wordt geopend.');
     const leaf = workspace.getLeaf(true);
     await leaf.openFile(targetFile);
   } else {
-    console.log('Geen match. Nieuwe note aanmaken...');
-    const folderPath = 'Meetings';
+    // CHANGED: Get folder from Settings, with backup use of '00_Meetings'
+    const folderPath = settings.meetingNoteFolder || '00_Meetings';
 
     if (!(await vault.adapter.exists(folderPath))) {
       await vault.createFolder(folderPath);
     }
 
-    // Maak de titel veilig voor bestandsnamen
     const safeTitle = title.replace(/[\\/:*?"<>|]/g, '');
     const filePath = `${folderPath}/${safeTitle}.md`;
 
@@ -88,7 +87,6 @@ date: ${(details.event as any).date || new Date().toISOString()}
       await leaf.openFile(newFile);
     } catch (error) {
       console.error('Fout bij aanmaken:', error);
-      // Als de file al bestaat op naam, maar de ID klopte niet, open hem dan alsnog
       const existingFile = vault.getAbstractFileByPath(filePath);
       if (existingFile instanceof TFile) {
         await workspace.getLeaf(true).openFile(existingFile);

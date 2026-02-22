@@ -5,14 +5,14 @@ Store events in-line in Daily Notes. Each event is a list item and event metadat
 [Tasks](../../events/tasks) are supported with [checkboxes](https://help.obsidian.md/How+to/Format+your+notes) so you can easily track your to-dos for the day.
 
 !!! tip "Power Up with Categories"
-    Daily Note calendars also support **[Advanced Categories](../events/categories.md)**. You can add a category to your task list items (e.g., `- [ ] Work - Finish report`) to color-code your daily agenda.
+Daily Note calendars also support **[Advanced Categories](../events/categories.md)**. You can add a category to your task list items (e.g., `- [ ] Work - Finish report`) to color-code your daily agenda.
 
 ## Prerequisites
 
 You must be using one of the supported daily notes plugins in order to create a daily note calendar:
 
--   [Daily Notes core plugin](https://help.obsidian.md/Plugins/Daily+notes)
--   [Periodic Notes community plugin](https://github.com/liamcain/obsidian-periodic-notes)
+- [Daily Notes core plugin](https://help.obsidian.md/Plugins/Daily+notes)
+- [Periodic Notes community plugin](https://github.com/liamcain/obsidian-periodic-notes)
 
 ## Configuring the Daily Notes calendar
 

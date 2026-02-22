@@ -27,13 +27,7 @@
   "googleAccounts": [],
   "businessHours": {
     "enabled": false,
-    "daysOfWeek": [
-      1,
-      2,
-      3,
-      4,
-      5
-    ],
+    "daysOfWeek": [1, 2, 3, 4, 5],
     "startTime": "09:00",
     "endTime": "17:00"
   },
@@ -49,5 +43,6 @@
   "weekends": true,
   "hiddenDays": [],
   "dayMaxEvents": false,
-  "currentVersion": "0.12.6"
+  "currentVersion": "0.12.6",
+  "meetingNoteFolder": "00_Meetings"
 }

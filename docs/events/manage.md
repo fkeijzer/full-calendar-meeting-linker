@@ -20,9 +20,9 @@ Drag the endpoint of event to change ending time
 When using the modal to create or edit an event, the plugin validates inputs in real time:
 
 - Duplicate detection: If an event with the same date and final title would collide in its target calendar:
-	- Full Note calendars: creation is blocked because the underlying filename would be identical (see below).
-	- Daily Note calendars: duplicates are not allowed; another list item with the same visible title on that date under the configured heading will be flagged.
-	- Note: Duplicate checks in Daily Notes compare the visible title (category prefix is ignored if Advanced Categories are enabled).
+  - Full Note calendars: creation is blocked because the underlying filename would be identical (see below).
+  - Daily Note calendars: duplicates are not allowed; another list item with the same visible title on that date under the configured heading will be flagged.
+  - Note: Duplicate checks in Daily Notes compare the visible title (category prefix is ignored if Advanced Categories are enabled).
 - Category-aware titles: If Advanced Categories are enabled, the Title field accepts "SubCategory - Title" and the Category is selected separately. The plugin reconstructs the full title when writing.
 
 Limitations applied by calendar type during editing:

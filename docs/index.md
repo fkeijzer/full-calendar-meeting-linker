@@ -8,14 +8,13 @@ The latest versions introduces **multi-language support** (the UI adapts to your
 
 Previous releases brought powerful **[Advanced Categories system](events/categories.md)** for coloring and organization, a reimagined **[recurring event engine](events/recurring.md)**, **[Calendar Workspaces](whats_new.md#-calendar-workspaces)** for quick setup switching, and the **[Chrono Analyser dashboard](chrono_analyser/introduction.md)** for time-based insights.
 
-
 This documentation site will guide you through setup and advanced features. If something is unclear, don't hesitate to [submit an issue on GitHub](https://github.com/YouFoundJK/plugin-full-calendar/issues).
 
 ![Sample Calendar](assets/sample-calendar.png)
 
 ---
 
-**See what's new:** [What's New](whats_new.md)  
+**See what's new:** [What's New](whats_new.md)
 
 **Full version history:** [Changelog](changelog.md)
 

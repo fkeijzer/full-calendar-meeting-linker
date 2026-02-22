@@ -175,7 +175,16 @@ export function launchEditModal(plugin: FullCalendarPlugin, eventId: string) {
           closeModal();
         },
         open: async () => {
-          await openFileForEvent(plugin.cache, plugin.app, eventId);
+          await openFileForEvent(
+            plugin.cache,
+            {
+              workspace: plugin.app.workspace,
+              vault: plugin.app.vault,
+              metadataCache: plugin.app.metadataCache,
+              settings: plugin.settings // <--- De missende schakel!
+            },
+            eventId
+          );
           closeModal();
         },
         deleteEvent: async () => {
@@ -221,11 +230,20 @@ export function launchEventDetailsModal(plugin: FullCalendarPlugin, eventId: str
         location,
         onClose: () => closeModal(),
         onOpenNote: () => {
-              void (async () => {
-                await openFileForEvent(plugin.cache, plugin.app, eventId);
-                closeModal();
-              })();
-            }
+          void (async () => {
+            await openFileForEvent(
+              plugin.cache,
+              {
+                workspace: plugin.app.workspace,
+                vault: plugin.app.vault,
+                metadataCache: plugin.app.metadataCache,
+                settings: plugin.settings // <--- Ook hier toevoegen!
+              },
+              eventId
+            );
+            closeModal();
+          })();
+        }
       })
     );
   }).open();
