@@ -60,6 +60,29 @@ export function renderGeneralSettings(
     });
   // --- EINDE MAPPENLIJST ---
 
+  // --- NIEUW: TEMPLATE LOGICA ---
+  // Collect all Markdown files in the vault (for templates)
+  const allFiles = plugin.app.vault.getMarkdownFiles();
+  const templateOptions: Record<string, string> = { '': 'Geen template' };
+  allFiles.forEach(file => {
+    templateOptions[file.path] = file.path;
+  });
+
+  // Add template-selector
+  new Setting(containerEl)
+    .setName('Meeting note template')
+    .setDesc('Kies een template die onder de Outlook-data geplakt moet worden.')
+    .addDropdown(dropdown => {
+      dropdown
+        .addOptions(templateOptions)
+        .setValue(plugin.settings.meetingNoteTemplate || '')
+        .onChange(async value => {
+          plugin.settings.meetingNoteTemplate = value;
+          await plugin.saveSettings();
+        });
+    });
+  // --- EINDE TEMPLATE LOGICA ---
+
   new Setting(containerEl)
     .setName(t('settings.general.mobileInitialView.label'))
     .setDesc(t('settings.general.mobileInitialView.description'))

@@ -61,7 +61,6 @@ export async function openFileForEvent(
     const leaf = workspace.getLeaf(true);
     await leaf.openFile(targetFile);
   } else {
-    // CHANGED: Get folder from Settings, with backup use of '00_Meetings'
     const folderPath = settings.meetingNoteFolder || '00_Meetings';
 
     if (!(await vault.adapter.exists(folderPath))) {
@@ -71,15 +70,44 @@ export async function openFileForEvent(
     const safeTitle = title.replace(/[\\/:*?"<>|]/g, '');
     const filePath = `${folderPath}/${safeTitle}.md`;
 
+    let templateBody = '';
+
+    if (settings.meetingNoteTemplate && settings.meetingNoteTemplate.trim() !== '') {
+      const templateFile = vault.getAbstractFileByPath(settings.meetingNoteTemplate);
+
+      if (templateFile instanceof TFile) {
+        const rawContent = await vault.read(templateFile);
+        // remove frontmatter form template
+        templateBody = rawContent.replace(/^---[\s\S]+?---\n*/, '').trim();
+
+        // --- Templater integration ---
+        // Trying to load Templater plugin
+        const templater = (workspace as any).app.plugins.plugins['templater-obsidian'];
+
+        if (templater && templater.templater) {
+          try {
+            // Parsing text through Templaterf
+            // Adding templateFile as context for <% tp.file.title %>
+            templateBody = await templater.templater.parseTemplate(templateFile, templateBody);
+          } catch (e) {
+            console.error('Templater parsing failed:', e);
+            new Notice('Templater was unable to parse note, we will use raw text.');
+          }
+        }
+      }
+    }
+
+    if (!templateBody) {
+      templateBody = `# ${title}\n\n## Notes\n- `;
+    }
+
     const fileContent = `---
 outlook-id: ${stableId}
 type: meeting
 date: ${(details.event as any).date || new Date().toISOString()}
 ---
-# ${title}
 
-## Notes
-- `;
+${templateBody}`;
 
     try {
       const newFile = await vault.create(filePath, fileContent);

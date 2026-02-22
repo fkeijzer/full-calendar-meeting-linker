@@ -133,7 +133,7 @@ export class StatusBarManager {
                   workspace: this.plugin.app.workspace,
                   vault: this.plugin.app.vault,
                   metadataCache: this.plugin.app.metadataCache,
-                  settings: this.plugin.settings,
+                  settings: this.plugin.settings
                 },
                 this.currentState.current.id
               );
@@ -157,7 +157,7 @@ export class StatusBarManager {
                 workspace: this.plugin.app.workspace,
                 vault: this.plugin.app.vault,
                 metadataCache: this.plugin.app.metadataCache,
-                settings: this.plugin.settings,
+                settings: this.plugin.settings
               },
               eventData.id
             );

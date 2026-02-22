@@ -44,5 +44,6 @@
   "hiddenDays": [],
   "dayMaxEvents": false,
   "currentVersion": "0.12.6",
-  "meetingNoteFolder": "00_Meetings"
+  "meetingNoteFolder": "00_Meetings",
+  "meetingNoteTemplate": "zz_Templates/Template_Meeting.md"
 }

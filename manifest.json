@@ -1,7 +1,7 @@
 {
   "id": "full-calendar-meeting-linker",
   "name": "Full Calendar (Meeting Note Edition)",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minAppVersion": "0.16.3",
   "description": "Remastered version Full Calendar with automated Outlook meeting note creation.",
   "author": "Jovi Koikkara, modified by Flip Keijzer",

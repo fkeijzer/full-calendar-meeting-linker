@@ -30,13 +30,13 @@ export function launchReminderModal(
           void (async () => {
             try {
               await openFileForEvent(
-                plugin.cache, 
-                { 
-                  workspace: plugin.app.workspace, 
-                  vault: plugin.app.vault, 
-                  metadataCache: plugin.app.metadataCache, 
-                  settings: plugin.settings 
-                }, 
+                plugin.cache,
+                {
+                  workspace: plugin.app.workspace,
+                  vault: plugin.app.vault,
+                  metadataCache: plugin.app.metadataCache,
+                  settings: plugin.settings
+                },
                 eventId
               );
             } catch (e) {
