@@ -83,6 +83,25 @@ export function renderGeneralSettings(
     });
   // --- EINDE TEMPLATE LOGICA ---
 
+  // --- NIEUW: DESKTOP WEERGAVE LOGICA ---
+  new Setting(containerEl)
+    .setName('Standaard weergave (Desktop)')
+    .setDesc('Kies met welke weergave de kalender standaard opent in het hoofdvenster.')
+    .addDropdown(dropdown => {
+      Object.entries(desktopViewOptions).forEach(([value, labelKey]) => {
+        dropdown.addOption(value, t(labelKey));
+      });
+      dropdown.setValue(plugin.settings.initialView?.desktop || 'timeGridWeek');
+      dropdown.onChange(async view => {
+        if (!plugin.settings.initialView) {
+          plugin.settings.initialView = { desktop: 'timeGridWeek', mobile: 'listWeek' };
+        }
+        plugin.settings.initialView.desktop = view;
+        await plugin.saveSettings();
+      });
+    });
+  // --- EINDE DESKTOP WEERGAVE ---
+
   new Setting(containerEl)
     .setName(t('settings.general.mobileInitialView.label'))
     .setDesc(t('settings.general.mobileInitialView.description'))

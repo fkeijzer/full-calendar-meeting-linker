@@ -572,7 +572,9 @@ export class CalendarView extends ItemView {
         // resources added lazily when entering timeline view
         enableAdvancedCategorization: this.plugin.settings.enableAdvancedCategorization,
         onViewChange: handleViewChange,
-        initialView: calendarConfig.initialView, // Use workspace-aware initial view
+        // When Calendar is in side pane, force day view ('timeGridDay').
+        // Otherwise use menu setting.
+        initialView: (this.inSidebar ? 'timeGridDay' : calendarConfig.initialView) as any,
         businessHours: (() => {
           // Use workspace business hours if set, otherwise use global settings
           const businessHours = calendarConfig.businessHours || this.plugin.settings.businessHours;
@@ -1055,6 +1057,19 @@ export class CalendarView extends ItemView {
 
   onResize(): void {
     if (this.fullCalendarView) {
+      // 1. Check window width. (Side panels are mostly smaller than 500px)
+      const isNarrow = this.containerEl.clientWidth < 500;
+      const currentView = this.fullCalendarView.view.type;
+      // 2. When placed in side panel, force Daily-view.
+      if (isNarrow && currentView !== 'timeGridDay') {
+        this.fullCalendarView.changeView('timeGridDay');
+      }
+      // 3. When moving back to main screen, get default view from settings.
+      else if (!isNarrow && currentView === 'timeGridDay') {
+        const defaultDesktop = this.plugin.settings.initialView?.desktop || 'timeGridWeek';
+        this.fullCalendarView.changeView(defaultDesktop);
+      }
+      // 4. Redraw FullCalendar
       requestAnimationFrame(() => {
         this.fullCalendarView!.render();
       });

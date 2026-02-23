@@ -77,23 +77,8 @@ export async function openFileForEvent(
 
       if (templateFile instanceof TFile) {
         const rawContent = await vault.read(templateFile);
-        // remove frontmatter form template
+        // Verwijder alleen de frontmatter, laat de <% tags lekker staan
         templateBody = rawContent.replace(/^---[\s\S]+?---\n*/, '').trim();
-
-        // --- Templater integration ---
-        // Trying to load Templater plugin
-        const templater = (workspace as any).app.plugins.plugins['templater-obsidian'];
-
-        if (templater && templater.templater) {
-          try {
-            // Parsing text through Templaterf
-            // Adding templateFile as context for <% tp.file.title %>
-            templateBody = await templater.templater.parseTemplate(templateFile, templateBody);
-          } catch (e) {
-            console.error('Templater parsing failed:', e);
-            new Notice('Templater was unable to parse note, we will use raw text.');
-          }
-        }
       }
     }
 
@@ -113,6 +98,18 @@ ${templateBody}`;
       const newFile = await vault.create(filePath, fileContent);
       const leaf = workspace.getLeaf(true);
       await leaf.openFile(newFile);
+
+      // --- DE ECHTE TEMPLATER FIX ---
+      // We wachten een fractie van een seconde tot het bestand echt is ingeladen in je scherm
+      const templaterPlugin = (workspace as any).app.plugins.plugins['templater-obsidian'];
+      if (templaterPlugin) {
+        setTimeout(() => {
+          // Vuurt het officiële 'Replace templates' commando van Templater af
+          (workspace as any).app.commands.executeCommandById(
+            'templater-obsidian:replace-in-file-templater'
+          );
+        }, 150);
+      }
     } catch (error) {
       console.error('Fout bij aanmaken:', error);
       const existingFile = vault.getAbstractFileByPath(filePath);
