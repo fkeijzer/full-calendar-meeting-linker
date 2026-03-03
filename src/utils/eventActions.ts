@@ -70,41 +70,51 @@ export async function openFileForEvent(
     const safeTitle = title.replace(/[\\/:*?"<>|]/g, '');
     const filePath = `${folderPath}/${safeTitle}.md`;
 
-    let templateBody = '';
+    let fileContent = '';
 
     if (settings.meetingNoteTemplate && settings.meetingNoteTemplate.trim() !== '') {
       const templateFile = vault.getAbstractFileByPath(settings.meetingNoteTemplate);
 
       if (templateFile instanceof TFile) {
-        const rawContent = await vault.read(templateFile);
-        // Verwijder alleen de frontmatter, laat de <% tags lekker staan
-        templateBody = rawContent.replace(/^---[\s\S]+?---\n*/, '').trim();
+        let rawContent = await vault.read(templateFile);
+        
+        // Determine the date for the placeholder (in YYYY-MM-DD format if possible)
+        const rawDate = (details.event as any).date || (details.event as any).start || new Date().toISOString();
+        const eventDateStr = typeof rawDate === 'string' ? rawDate.split('T')[0] : new Date(rawDate).toISOString().split('T')[0];
+
+        // --- Your template ---
+        rawContent = rawContent.replace(/{ outlookId }/g, stableId);
+        rawContent = rawContent.replace(/{ outlookMeetingDate }/g, eventDateStr);
+        
+        fileContent = rawContent;
       }
     }
 
-    if (!templateBody) {
-      templateBody = `# ${title}\n\n## Notes\n- `;
-    }
-
-    const fileContent = `---
+    // Fallback if template cannot be found
+    if (!fileContent) {
+      fileContent = `---
 outlook-id: ${stableId}
 type: meeting
 date: ${(details.event as any).date || new Date().toISOString()}
 ---
 
-${templateBody}`;
+# ${title}
+
+## Notes
+- `;
+    }
 
     try {
       const newFile = await vault.create(filePath, fileContent);
       const leaf = workspace.getLeaf(true);
       await leaf.openFile(newFile);
 
-      // --- DE ECHTE TEMPLATER FIX ---
-      // We wachten een fractie van een seconde tot het bestand echt is ingeladen in je scherm
+      // --- TEMPLATER FIX ---
+      // wait a second untill the file is loaded onto the screen
       const templaterPlugin = (workspace as any).app.plugins.plugins['templater-obsidian'];
       if (templaterPlugin) {
         setTimeout(() => {
-          // Vuurt het officiële 'Replace templates' commando van Templater af
+          // Replae items in template
           (workspace as any).app.commands.executeCommandById(
             'templater-obsidian:replace-in-file-templater'
           );
